@@ -78,6 +78,10 @@ jobs:
           command: /build-tools-ci/scripts/set-environment
 
       - run:
+          name: Build USF Custom Theme
+          command: cd web/themes/custom/usf/ && npm run build && npm run compile && npm run compress && npm run styleguide && npm run lint
+
+      - run:
           name: run static tests
           command: ./.ci/test/static/run
 
