@@ -83,7 +83,7 @@ jobs:
 
       - run:
           name: Install More Tooling
-          command: cd web/themes/custom/usf/ && npm i -g|-D postcss-cli && npm install postcss-cli autoprefixer
+          command: cd web/themes/custom/usf/ && npm i -g postcss-cli && npm install postcss-cli autoprefixer
 
       - run:
           name: Build USF Custom Theme
