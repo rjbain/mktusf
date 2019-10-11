@@ -79,11 +79,15 @@ jobs:
 
       - run:
           name: Install Tooling
-          command: cd web/themes/custom/usf/ && npm install gulp gulp-sass gulp-cssmin gulp-concat gulp-imagemin gulp-smushit gulp-uglify  --save-dev
+          command: cd web/themes/custom/usf/ && npm install gulp gulp-sass breakpoint-sass gulp-cssmin gulp-concat gulp-imagemin gulp-smushit gulp-uglify gulp-sass-glob --save-dev
+
+      - run:
+          name: Install More Tooling
+          command: cd web/themes/custom/usf/ && npm i -g|-D postcss-cli && npm install postcss-cli autoprefixer
 
       - run:
           name: Build USF Custom Theme
-          command: cd web/themes/custom/usf/ && npm run build && npm run compile && npm run compress && npm run styleguide && npm run lint
+          command: cd web/themes/custom/usf/ && npm install && node ./node_modules/gulp/bin/gulp.js gessoBuild
 
       - run:
           name: run static tests

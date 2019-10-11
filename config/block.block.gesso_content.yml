@@ -1,0 +1,22 @@
+uuid: 702b0bba-7169-49a6-ba87-d43c9c1428ca
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gesso
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: gesso_content
+theme: gesso
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,65 +1,73 @@
-# Generated on 2019-10-10 using generator-mc-d8-theme 2.0.1
-
-# Drupal's .info.yml files allow themers to easily specify some of the static
-# properties of your theme. Properties such as its name, libraries of style
-# sheets and javascripts, and block regions.
-#
-# Drupal 8 stores a cache of the data in this .info.yml files. If you modify any
-# lines in this file, you MUST refresh Drupal 8's cache. You can do this with
-# the "drush cr" command or by simply visiting the Appearance page at
-# admin/appearance.
-
-name: usf
+name: USF Theme
 type: theme
-description: Custom USF theme
-package: Other
+description: ''
+package: Core
 core: 8.x
-# Classy vs. Stable as a base theme: https://www.lullabot.com/articles/a-tale-of-two-base-themes-in-drupal-8-core
 base theme: stable
 
-# This section controls the libraries for your theme. For full documentation,
-# see https://www.drupal.org/node/2216195
+libraries:
+  - usf/global
 
-# The "libraries-override:" section will allow you to:
-# - Replace an entire library.
-# - Remove an entire library.
-# - Replace an asset in a library with another asset.
-# - Remove an asset from a library.
 libraries-override:
+  core/drupal.dropbutton:
+    js:
+      misc/dropbutton/dropbutton.js: js/overrides/dropbutton.js
+    css:
+      component:
+        /core/themes/stable/css/core/dropbutton/dropbutton.css: false
+  core/drupal.collapse:
+    js:
+      misc/collapse.js: js/overrides/collapse.js
+  core/modernizr:
+    js:
+      assets/vendor/modernizr/modernizr.min.js: js/lib/modernizr.min.js
   system/base:
     css:
       component:
-        # Replace one file with another.
-        /core/themes/stable/css/system/components/hidden.module.css: dist/css/hidden.css
+        /core/themes/stable/css/system/components/align.module.css: false
+        /core/themes/stable/css/system/components/clearfix.module.css: false
+        /core/themes/stable/css/system/components/container-inline.module.css: false
+        /core/themes/stable/css/system/components/details.module.css: false
+        /core/themes/stable/css/system/components/fieldgroup.module.css: false
+        /core/themes/stable/css/system/components/hidden.module.css: false
+        /core/themes/stable/css/system/components/item-list.module.css: false
+        /core/themes/stable/css/system/components/nowrap.module.css: false
+        /core/themes/stable/css/system/components/position-container.module.css: false
+        /core/themes/stable/css/system/components/progress.module.css: false
+        /core/themes/stable/css/system/components/reset-appearance.module.css: false
+        /core/themes/stable/css/system/components/resize.module.css: false
 
-# The "libraries-extend:" section will allow you to add your own JS or CSS to
-# existing libraries.
-# libraries-extend:
+ckeditor_stylesheets:
+  - https://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:300,400,600,700
+  - css/styles.css
 
-# The "libraries:" section will add a library to _all_ pages.
-libraries:
-  - usf/global
-  # Example adding the webfonts library to every page.
-  # See usf.libraries.yml for more info.
-  #- usf/webfonts
-
-# This section is used by the contrib module, Component Libraries. It allows you
-# to reference .twig files in your sass/ directory by using the Twig namespace:
-# @usf
-# See https://www.drupal.org/project/components for more information.
-component-libraries:
-  usf:
-    paths:
-      - src/patterns/global
-      - src/patterns/components
-      - src/patterns/pages
-      - src/templates
-
-# This section lists the regions defined in the theme (our base theme) default
-# page.html.twig and maintenance-page.html.twig files. The name before
-# the semi-colon is the machine name of the region. The text after the
-# semi-colon is the region's description used on the admin/structure/block page.
 regions:
+  page_top: 'Page top'
   header: Header
+  navigation: Navigation
+  breadcrumb: Breadcrumb
+  help: Help
+  highlighted: Highlighted
+  preface: Preface
   content: Content
+  postscript: Postscript
   footer: Footer
+  disabled: Disabled
+  page_bottom: 'Page bottom'
+
+component-libraries:
+  base:
+    paths:
+      - source/_patterns/01-base
+  layouts:
+    paths:
+      - source/_patterns/02-layouts
+  components:
+    paths:
+      - source/_patterns/03-components
+  templates:
+    paths:
+      - source/_patterns/04-templates
+  pages:
+    paths:
+      - source/_patterns/05-pages

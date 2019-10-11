@@ -1,4 +1,4 @@
-uuid: 3517e51e-0acd-41fc-adef-fe1883dae55e
+uuid: 8d26d85a-2eac-4c8e-9dfb-ace72f86fc77
 langcode: en
 status: true
 dependencies:
@@ -10,7 +10,7 @@ _core:
   default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
 id: usf_breadcrumbs
 theme: usf
-region: header
+region: breadcrumb
 weight: 0
 provider: null
 plugin: system_breadcrumb_block
