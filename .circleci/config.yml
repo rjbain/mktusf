@@ -78,6 +78,18 @@ jobs:
           command: /build-tools-ci/scripts/set-environment
 
       - run:
+          name: Install Tooling
+          command: cd web/themes/custom/usf/ && npm install gulp gulp-sass breakpoint-sass gulp-cssmin gulp-concat gulp-imagemin gulp-smushit gulp-uglify gulp-sass-glob --save-dev
+
+      - run:
+          name: Install More Tooling
+          command: cd web/themes/custom/usf/ && npm i -g postcss-cli && npm install postcss-cli autoprefixer node-sass
+
+      - run:
+          name: Build USF Custom Theme
+          command: cd web/themes/custom/usf/ && npm install && ./node_modules/gulp/bin/gulp.js gessoBuild
+
+      - run:
           name: run static tests
           command: ./.ci/test/static/run
 

@@ -1,0 +1,22 @@
+uuid: 2553aeb0-ce91-4181-90e1-892aaa0310ab
+langcode: en
+status: true
+dependencies:
+  theme:
+    - usf
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: usf_local_tasks
+theme: usf
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }
