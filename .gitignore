@@ -36,6 +36,8 @@ web/web.config
 
 # Add directories containing build assets below.
 # Keep all additions above the "cut" line.
+web/sites/default/files/css
+web/sites/default/files/js
 
 # This distinction is only important when using this
 # repository as a custom upstream. The .gitignore file
