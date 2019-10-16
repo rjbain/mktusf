@@ -87,7 +87,7 @@ jobs:
 
       - run:
           name: Build USF Custom Theme
-          command: cd web/themes/custom/usf/ && npm install && node ./node_modules/gulp/bin/gulp.js gessoBuild
+          command: cd web/themes/custom/usf/ && npm install && ./node_modules/gulp/bin/gulp.js gessoBuild
 
       - run:
           name: run static tests
