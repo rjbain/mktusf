@@ -1,0 +1,16 @@
+# Breakpoints - change based on site need
+usf.small:
+  label: small
+  mediaQuery: 'all and (min-width: 25em)'
+usf.small-med:
+  label: small-med
+  mediaQuery: 'all and (min-width: 26em)'
+usf.small-large:
+  label: small-large
+  mediaQuery: 'all and (min-width: 41em)'
+usf.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 48em)'
+usf.large:
+  label: large
+  mediaQuery: 'all and (min-width: 61.25em)'
