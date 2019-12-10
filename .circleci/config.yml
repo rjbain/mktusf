@@ -109,16 +109,12 @@ jobs:
           command: ./.ci/build/php
 
       - run:
-          name: install yarn
+          name: set up frontend tooling
           command: cd web/themes/custom/usf/ && yarn install
 
       - run:
-          name: set up frontend tooling
-          command: cd web/themes/custom/usf/ && yarn install && npm install gulp -g
-
-      - run:
           name: build assets
-          command: cd web/themes/custom/usf/ && gulp compile && gulp theme
+          command: cd web/themes/custom/usf/ && gulp compile
 
       - save_cache:
           key: vendor-{{ checksum "composer.lock" }}
