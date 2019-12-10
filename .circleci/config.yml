@@ -110,7 +110,7 @@ jobs:
 
       - run:
           name: set up frontend tooling
-          command: cd web/themes/custom/usf/ && yarn install
+          command: cd web/themes/custom/usf/ && yarn install && npm install gulp -g
 
       - run:
           name: build assets
