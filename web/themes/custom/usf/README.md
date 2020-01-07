@@ -1,43 +1,87 @@
-# Getting Started
+[![Four Kitchens](https://img.shields.io/badge/4K-Four%20Kitchens-35AA4E.svg)](https://fourkitchens.com/)
 
-## Browser Support
-Autoprefixer & Babel is set to support the last 2 versions of modern browsers
+# usf: Pattern Lab + Drupal 8
 
-These can be updated at any time within the `package.json`.
+Component-driven prototyping tool using [Pattern Lab v2](http://patternlab.io/) automated via Gulp/NPM. Also serves as _a starterkit_ Drupal 8 theme.
 
-## Run the following commands from the theme directory
-If you haven't yet, install nvm:
-https://github.com/creationix/nvm
+## Requirements
 
-### Use the right version of node with:
-`nvm use`
+1.  [PHP 7.1](http://www.php.net/)
+2.  [Node (we recommend NVM)](https://github.com/creationix/nvm)
+3.  [Gulp](http://gulpjs.com/)
+4.  [Composer](https://getcomposer.org/)
+5.  Optional: [Yarn](https://github.com/yarnpkg/yarn)
 
-_This command will look at your `.nvmrc` file and use the version node.js specified in it. This ensures all developers use the same version of node for consistency._
+## Prototyping (separate from Drupal, Wordpress, etc.)
 
-### If that version of node isn't installed, install it with:
-`nvm install`
+usf supports both NPM and YARN.
 
-### Install npm dependencies with
-`npm install`
+Install with NPM:
+`composer create-project fourkitchens/usf:^3.0 --stability dev --no-interaction usf && cd usf && npm install`
 
-_This command looks at `package.json` and installs all the npm dependencies specified in it.  Some of the dependencies include gulp, autoprefixer, gulp-sass and others._
+Install with Yarn:
+`composer create-project fourkitchens/usf:^3.0 --stability dev --no-interaction usf && cd usf && yarn install`
 
-### Runs default task
-`npm run build`
+## Drupal installation
 
-_This will run whatever the default task is._
+### In a Composer-based Drupal install (recommended)
 
-### Compiles Sass
-`npm run compile`
+1. Require usf in your project `composer require fourkitchens/usf`
+2. Move into the original usf theme `cd web/themes/contrib/usf/`
+3. Create your new theme by cloning usf `php usf.php "THEME NAME"` (Run `php usf.php -h` for other available options)
+4. Move into your theme directory `cd web/themes/custom/THEME_NAME/`
+5. Install the theme dependencies `npm install` or `yarn install`
+6. Enable your theme and its dependencies `drush then THEME_NAME -y && drush en components unified_twig_ext -y`
+7. Proceed to the "Starting Pattern Lab…" section below
 
-_This will perform a one-time Sass compilation._
+If you're not using a Composer-based Drupal install (e.g. tarball download from drupal.org) installation [instructions can be found on the Wiki](https://github.com/fourkitchens/usf/wiki/Installation).
 
-### Runs the watch command
-`npm run watch`
+Troubleshooting Installation: See [Drupal Installation FAQ](https://github.com/fourkitchens/usf/wiki/Installation#drupal-installation-faq).
 
-_This is ideal when you are doing a lot of Sass changes and you want to make sure every time a change is saved it automatically gets compiled to CSS_
+_Note: Once you've created your custom theme, you can remove usf as a dependency of your project. If you'd like to get updates as we push them, solely for educational/best-practice information, feel free to leave it in and receive the updates. Updating usf will not affect your custom theme in any way._
 
-### Cleans complied directory
-`npm run clean`
+## Starting Pattern Lab and watch task
 
-_This will perform a one-time deletion of all compiled files within the dist/ directory._
+The `start` command spins up a local server, compiles everything (runs all required gulp tasks), and watches for changes.
+
+1.  `npm start` or `yarn start`
+
+---
+
+## Highlighted Features
+
+<table><tbody>
+<tr><td>Lightweight</td><td>✔</td><td>usf is focused on being as lightweight as possible.</td></tr>
+<tr><td>SVG sprite support </td><td><strong>✔</strong></td><td>Automated support for creating SVG sprites mixins/classes.</td></tr>
+<tr><td>Stock Drupal templates </td><td><strong>✔</strong></td><td>Templates from Stable theme - see /templates directory</td></tr>
+<tr><td>Stock Components </td><td><strong>✔</strong></td><td>with Drupal support built-in (https://github.com/fourkitchens/usf#usfs-built-in-components-with-drupal-support)</td></tr>
+<tr><td>Performance Testing </td><td><strong>✔</strong></td><td>Support for testing via Google PageSpeed Insights and WebPageTest.org (https://github.com/fourkitchens/usf/wiki/Gulp-Config#performance-testing)</td></tr>
+<tr><td>Automated Github Deployment </td><td><strong>✔</strong></td><td>Deploy your Pattern Lab instance as a Github page (https://github.com/fourkitchens/usf/wiki/Gulp-Config#deployment)</td></tr>
+</tbody></table>
+
+<h3 id="components">usf's Built in Components with Drupal support</h3>
+Forms, tables, video, accordion, cards, breadcrumbs, tabs, pager, status messages, grid
+
+View a [demo of these default usf components](https://fourkitchens.github.io/usf/pattern-lab/public/).
+
+## Documentation
+
+Documentation is currently provided in [the Wiki](https://github.com/fourkitchens/usf/wiki). Here are a few basic links:
+
+#### General Orientation
+
+See [Orientation](https://github.com/fourkitchens/usf/wiki/Orientation)
+
+We have a [series of videos](https://www.youtube.com/playlist?list=PLO9S6JjNqWsGMQLDfE8Ekt0ryrGa3g4km) for you to learn more about usf.
+
+#### For Designers (Prototyping)
+
+See [Designers](https://github.com/fourkitchens/usf/wiki/For-Designers)
+
+#### For Drupal 8 Developers
+
+See [Drupal Usage](https://github.com/fourkitchens/usf/wiki/Drupal-Usage)
+
+#### Gulp Configuration
+
+See [Gulp Config](https://github.com/fourkitchens/usf/wiki/Gulp-Config)

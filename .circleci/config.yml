@@ -108,6 +108,14 @@ jobs:
           name: run PHP build step
           command: ./.ci/build/php
 
+      - run:
+          name: set up frontend tooling
+          command: cd web/themes/custom/usf/ && yarn install && npm install gulp -g
+
+      - run:
+          name: build assets
+          command: cd web/themes/custom/usf/ && gulp compile
+
       - save_cache:
           key: vendor-{{ checksum "composer.lock" }}
           paths:
@@ -248,10 +256,10 @@ workflows:
             branches:
               ignore:
                 - master
-      - behat_test:
-          requires:
-            - deploy_to_pantheon
-            - visual_regression_test
+#      - behat_test:
+#          requires:
+#            - deploy_to_pantheon
+#            - visual_regression_test
 
   scheduled_update_check:
     triggers:
