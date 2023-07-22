@@ -30,7 +30,7 @@
     "@pattern-lab/core": "^3.0.3",
     "@pattern-lab/engine-twig-php": "^3.0.2",
     "@pattern-lab/uikit-workshop": "^1.0.4",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.3",
     "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
